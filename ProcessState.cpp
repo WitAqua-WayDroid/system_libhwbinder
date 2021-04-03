@@ -129,7 +129,8 @@ void ProcessState::becomeContextManager()
     AutoMutex _l(mLock);
 
     flat_binder_object obj {
-        .flags = FLAT_BINDER_FLAG_TXN_SECURITY_CTX,
+        // Disabled for Waydroid
+        /*.flags = FLAT_BINDER_FLAG_TXN_SECURITY_CTX,*/
     };
 
     status_t result = ioctl(mDriverFD, BINDER_SET_CONTEXT_MGR_EXT, &obj);
